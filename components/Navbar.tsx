@@ -21,7 +21,7 @@ function Navbar({ auth }: { auth: boolean }) {
                             </svg>
                         </button>
                     </div>
-                    <div className={`flex lg:flex-row lg:h-fit flex-col gap-6 ${isOpen ? 'h-[250px]' : 'h-0'} transition-all overflow-clip px-3 pt-2`}>
+                    <div className={`flex lg:flex-row lg:h-fit flex-col gap-6 ${isOpen ? 'h-[150px]' : 'h-0'} transition-all overflow-clip px-3 pt-2`}>
                         {
                             auth ? (
                                 <>

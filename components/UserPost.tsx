@@ -8,6 +8,7 @@ import 'swiper/css';
 import moment from 'moment';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import MediaSlides from './MediaSlides';
 const MySwal = withReactContent(Swal)
 function UserPost() {
     const [isLoading, setIsLoading] = useState(false);
@@ -99,36 +100,7 @@ function UserPost() {
                                 </div>
                             </div>
                             <div className='rounded w-full mt-3'>
-                                <Swiper
-                                    spaceBetween={0}
-                                    slidesPerView={1}
-                                >
-                                    {
-                                        post.get_media.map((media: any, key: number) => {
-                                            if (media.media_type == 'video/mp4' || media.media_type == 'video/mov') {
-                                                return (
-                                                    <SwiperSlide key={key}>
-                                                        <video width="100%" height="100%" controls={true}>
-                                                            <source
-                                                                src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${media.media_path}`}
-                                                                type="video/mp4"
-                                                            />
-                                                        </video>
-                                                        <div className='h-20'>
-
-                                                        </div>
-                                                    </SwiperSlide>
-                                                )
-                                            } else {
-                                                return (
-                                                    <SwiperSlide key={key}>
-                                                        <Image src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${media.media_path}`} width={500} height={500} className='w-full' alt='media'></Image>
-                                                    </SwiperSlide>
-                                                )
-                                            }
-                                        })
-                                    }
-                                </Swiper>
+                                <MediaSlides data={post.get_media} />
                             </div>
                             <div className='mt-3 text-xs'>
                                 <span className='font-semibold'>{post.user_id}</span> <span>{post.caption}</span>

@@ -5,6 +5,8 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Loading from './Loading'
 import 'swiper/css';
+import MediaSlides from './MediaSlides'
+import { data } from 'autoprefixer'
 function PublicPost() {
     const { posts, loadMore, isLoadMoreLoading, isLoading, page, maxPage } = usePost()
     return (
@@ -31,7 +33,8 @@ function PublicPost() {
                                     </div>
                                 </div>
                                 <div className='rounded w-full mt-3'>
-                                    <Swiper
+                                    <MediaSlides data={post.get_media} />
+                                    {/* <Swiper
                                         spaceBetween={0}
                                         slidesPerView={1}
                                     >
@@ -60,7 +63,7 @@ function PublicPost() {
                                                 }
                                             })
                                         }
-                                    </Swiper>
+                                    </Swiper> */}
                                 </div>
                                 <div className='mt-3 text-xs'>
                                     <span className='font-semibold'>{post.user_id}</span> <span>{post.caption}</span>
